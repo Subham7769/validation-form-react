@@ -23,3 +23,11 @@
     border: 2px solid dodgerblue;
     outline: none;
   }
+  input[type="submit"]{
+    background-color: dodgerblue;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border: none;
+    width: 6rem;
+    align-self: center;
+  }

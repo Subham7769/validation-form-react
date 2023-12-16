@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 
 const ConTestForm = () => {
   const [emailError, setEmailError] = useState("");
@@ -6,7 +6,14 @@ const ConTestForm = () => {
   const [conPasswordError, setConPasswordError] = useState("");
   const [password, setPassword] = useState("");
 
+  useEffect(() => {
+    // Update border color after state has been updated
+    document.getElementsByName("conPassword")[0].style.borderColor = conPasswordError ? 'red' : 'green';
+    document.getElementsByName("password")[0].style.borderColor = passwordError ? 'red' : 'green';
+    document.getElementsByName("email")[0].style.borderColor = emailError ? 'red' : 'green';
+  }, [conPasswordError,emailError,passwordError]);
 
+  
   const Validations = (e) => {
 
     let emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
@@ -14,12 +21,7 @@ const ConTestForm = () => {
 
     switch (e.target.name) {
       case "email":
-        if (!e.target.value.match(emailRegex)) {
-          setEmailError("Enter Valid Email");
-        } else {
-          setEmailError("");
-        }
-        e.target.style.borderColor = emailError ? 'red' : 'green';
+        !e.target.value.match(emailRegex)?setEmailError("Enter Valid Email"):setEmailError("");
         break;
 
       case "password":
@@ -28,20 +30,11 @@ const ConTestForm = () => {
         } else {
           setPasswordError("");
           setPassword(e.target.value)
-          console.log('Password - ' +e.target.value)
         }
-        e.target.style.borderColor = passwordError ? 'red' : 'green';
-        
         break;
         
         case "conPassword":
-          if (!(e.target.value==password)) {
-            setConPasswordError("Password Do not Match");
-          } else {
-            setConPasswordError("");
-            console.log('Confirm Password - ' +e.target.value)
-          }
-          e.target.style.borderColor = conPasswordError ? 'red' : 'green';
+          !(e.target.value==password)?setConPasswordError("Password Do not Match"):setConPasswordError("");
         break;
 
       default:
@@ -58,6 +51,8 @@ const ConTestForm = () => {
       alert("can't submit the form");
     }
   };
+
+
 
   return (
     <div className="contestFormContainer">
