@@ -6,23 +6,34 @@
     height: 100vh;
     width: 100vw;
   }
-  .contestFormContainer *{
-    margin: 0;
-    padding: 0.3rem 0.5rem;
-    border-radius: 0.3rem;
-  }
+
   .contestForm{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 1.5rem;
+    border: 2px solid rgb(205, 205, 205);
+    border-radius: 1rem;
+    background-color: rgb(244, 244, 244);
+    width: 50%;
+    padding: 1rem;
+
+  }
+  .contestForm>span{
+    width: 50%;
   }
   .contestForm>span>p:nth-child(3){
     color: red;
+    font-size: 0.9rem;
   }
   .contestForm>span>input{
-    border: 2px solid dodgerblue;
     outline: none;
+    width: 100%;
+    border-radius: .3rem;
+    padding: 0.5rem;
   }
+
   input[type="submit"]{
     background-color: dodgerblue;
     color: white;
