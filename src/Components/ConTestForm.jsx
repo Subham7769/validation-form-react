@@ -13,7 +13,7 @@ const ConTestForm = () => {
     document.getElementsByName("email")[0].style.borderColor = emailError ? 'red' : 'green';
   }, [conPasswordError,emailError,passwordError]);
 
-  
+
   const Validations = (e) => {
 
     let emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
@@ -21,12 +21,12 @@ const ConTestForm = () => {
 
     switch (e.target.name) {
       case "email":
-        !e.target.value.match(emailRegex)?setEmailError("Enter Valid Email"):setEmailError("");
+        !e.target.value.match(emailRegex)?setEmailError("Invalid email formate"):setEmailError("");
         break;
 
       case "password":
         if (!e.target.value.match(passwordRegex)) {
-          setPasswordError("Enter Valid Password");
+          setPasswordError("Password Must be at least 8 characters");
         } else {
           setPasswordError("");
           setPassword(e.target.value)
@@ -34,7 +34,7 @@ const ConTestForm = () => {
         break;
         
         case "conPassword":
-          !(e.target.value==password)?setConPasswordError("Password Do not Match"):setConPasswordError("");
+          !(e.target.value==password)?setConPasswordError("Passwords do not match"):setConPasswordError("");
         break;
 
       default:
@@ -72,7 +72,7 @@ const ConTestForm = () => {
           <input type="password" name="conPassword" onChange={Validations} required/>
           {conPasswordError && <p>{conPasswordError}</p>}
         </span>
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Sign Up" />
       </form>
     </div>
   );
