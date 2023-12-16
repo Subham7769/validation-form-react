@@ -1,0 +1,25 @@
+/* contestform */
+.contestFormContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+  }
+  .contestFormContainer *{
+    margin: 0;
+    padding: 0.3rem 0.5rem;
+    border-radius: 0.3rem;
+  }
+  .contestForm{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .contestForm>span>p:nth-child(3){
+    color: red;
+  }
+  .contestForm>span>input{
+    border: 2px solid dodgerblue;
+    outline: none;
+  }
